@@ -1,44 +1,125 @@
 :root {
-    --home: #560372;
-    --away: #00bb09;
-  }
-
-body {
-    background-color: #303030;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
+  --asv: #560372;
+  --asv2:#007a10;
+  --sel: #7d00a7;
+  --home: #560372;
+  --away: #d9dd00;
 }
 
-h1, h2 {
-    text-align: center;
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #ffffff;
+  background: var(--sel);
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--sel);
+}
+
+/* Vertical Center*/
+.ct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
-    background-color: #120018;
-    border          : none;
-    border-radius   : 15px;
-    color           : white;
-    padding         : 15px 32px;
-    text-align      : center;
-    text-decoration : none;
-    display         : inline-block;
-    font-size       : 16px;
+  background-color: #120018;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 @keyframes btnHover {
-    from { border-radius: 15px; }
-    to { border-radius: 10px; }
+  from {
+    border-radius: 15px;
+  }
+  to {
+    border-radius: 10px;
+  }
 }
 
 button:hover {
-    animation-name           : btnHover;
-    animation-duration       : 0.5;
+  animation-name: btnHover;
+  animation-duration: 0.5;
 }
 
 button .home {
-    background-color: var(--home);
+  background-color: var(--home);
 }
 
 button .away {
-    background-color: var(--away); /* make dynamic */
+  background-color: var(--away); /* make dynamic */
+}
+
+#gameStatus {
+  margin-bottom: 1.2rem;
+  font-size: 1.8em;
+}
+
+#startGame {
+  text-align: center;
+}
+
+#timer {
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+/* ANIMATIONS */
+
+.bounce {
+  display: inline-block;
+  animation: bounce 2s ease-in-out;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0%,
+  25%,
+  50%,
+  75%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-16px);
+  }
+
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+.spin {
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
