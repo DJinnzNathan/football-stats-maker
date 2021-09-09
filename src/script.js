@@ -88,3 +88,9 @@ function printPoss() {
     // console.log('Possession Home: ' + ((homePt / possTotal) * 100) + ' ( ' + homePt + ' )');
     // console.log('Possession Away: ' + ((awayPt / possTotal) * 100) + ' ( ' + awayPt + ' )');
 }
+
+function setupSecondLeg() {
+    sec = 0;
+    min = 45;
+    printTime();
+}
