@@ -1,0 +1,214 @@
+:root {
+  --asv: #560372;
+  --asv2: #007a10;
+  --sel: #7d00a7;
+  --home: #560372;
+  --away: #d9dd00;
+}
+
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+.nrs {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #ffffff;
+  background: var(--sel);
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--sel);
+}
+
+/* Vertical Center*/
+.ct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: #120018;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+@keyframes btnHover {
+  from {
+    border-radius: 15px;
+  }
+  to {
+    border-radius: 10px;
+  }
+}
+
+button:hover {
+  animation-name: btnHover;
+  animation-duration: 0.5;
+}
+
+button .home {
+  background-color: var(--home);
+}
+
+button .away {
+  background-color: var(--away); /* make dynamic */
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--home);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--away);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--away);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#gameStatus {
+  margin: 0.2rem;
+  font-size: 1.4em;
+}
+
+#startGame {
+  text-align: center;
+}
+
+#timer {
+  font-weight: 700;
+  font-size: 2.5em;
+  margin: 0.5rem;
+}
+
+/* PROGRESS BAR */
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 250px;
+  height: 20px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: var(--away);
+  border-radius: 2px;
+}
+
+progress[value]::-webkit-progress-value {
+ background-color: var(--home);
+}
+
+/* ANIMATIONS */
+
+.bounce {
+  display: inline-block;
+  animation: bounce 2s ease-in-out;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0%,
+  25%,
+  50%,
+  75%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-16px);
+  }
+
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+.spin {
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
