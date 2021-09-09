@@ -28,8 +28,8 @@ function printData() {
 }
 
 function printTime() {
-    document.getElementById('min').innerText = String(min);
-    document.getElementById('sec').innerText = ((sec < 10) ? '0' + String(sec) : String(sec));
+    document.getElementById('min').innerText = min;
+    document.getElementById('sec').innerText = ((sec < 10) ? '0' + sec : sec);
 }
 
 function toggleTimer() {
