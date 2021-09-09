@@ -23,6 +23,7 @@ function add() {
 
 function printData() {
     printTime();
+    printOnTitle();
     printPoss();
 }
 
@@ -83,6 +84,10 @@ function printPoss() {
     document.getElementById('possBar').value = homePoss;
 
     console.log('Possession: HOME ' + homePoss + '% - ' + awayPoss + '% AWAY');
+}
+
+function printOnTitle() {
+    document.title = min + ':' + ((sec<=9) ? '0' + sec : sec);
 }
 
 function setupSecondLeg() {
