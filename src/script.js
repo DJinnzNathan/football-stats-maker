@@ -87,7 +87,7 @@ function printPoss() {
 }
 
 function printOnTitle() {
-    document.title = min + ':' + ((sec<=9) ? '0' + sec : sec);
+    document.title = min + ':' + ((sec < 10) ? '0' + sec : sec);
 }
 
 function setupSecondLeg() {
