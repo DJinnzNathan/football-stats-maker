@@ -43,10 +43,10 @@ function toggleTimer() {
 
 function toggleIconStatus() {
 
-    if (document.getElementById('startGame').innerText == ("Resume Game" || "Start Game")) {
-        document.getElementById('startGame').innerText = "Pause Game";
+    if (document.getElementById('startGame').innerText == ("⏸️" || "⏯️")) {
+        document.getElementById('startGame').innerText = "▶️";
     } else {
-        document.getElementById('startGame').innerText = "Resume Game";
+        document.getElementById('startGame').innerText = "⏸️";
     }
 
     if (document.getElementById('gameStatus').className == "spin") {
@@ -83,10 +83,6 @@ function printPoss() {
     document.getElementById('possBar').value = homePoss;
 
     console.log('Possession: HOME ' + homePoss + '% - ' + awayPoss + '% AWAY');
-
-    // console.log('Possession Total: ' + possTotal);
-    // console.log('Possession Home: ' + ((homePt / possTotal) * 100) + ' ( ' + homePt + ' )');
-    // console.log('Possession Away: ' + ((awayPt / possTotal) * 100) + ' ( ' + awayPt + ' )');
 }
 
 function setupSecondLeg() {
