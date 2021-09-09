@@ -16,27 +16,66 @@
     <div class="ct">
         <span id="gameStatus" class="">⚽</span>
     </div>
+    <div id="timer" class="ct">
+        <span id="min">0</span><span>:</span><span id="sec">00</span>
+    </div>
     <div class="ct">
         <button id="startGame" onclick="toggleGame()">Start Game</button>
     </div>
-    <div id="timer" class="ct">
-        <span id="min">0</span>:<span id="sec">00</span>
+    <div class="ct" style="margin: 0.5rem;">
+        <label class="switch">
+            <input type="checkbox" id="possessionStatus">
+            <span class="slider round"></span>
+        </label>
     </div>
 
     <div id="stats">
-        <h2>Ballbesitz</h2>
-        <div></div>
-        <h2>Torschüsse gesamt</h2>
-        <h2>Schüsse aufs Tor</h2>
-        <h2>Pässe</h2>
-        <h2>Passquote</h2>
-        <h2>Begangene Fouls</h2>
-        <h2>Gelbe Karten</h2>
-        <h2>Rote Karten</h2>
-        <h2>Ecken</h2>
-        <h2>Abseits</h2>
+        <div id="possession">
+            <h2>Ballbesitz</h2>
+            <div class="ct nrs">
+                <span id="possHome">50</span>%&nbsp;-&nbsp;<span id="possAway">50</span>%
+            </div>
+            <div class="ct">
+                <progress id="possBar" max="100" value="50"></progress>
+            </div>
+        </div>
+        <div id="shotsTotal">
+            <h2>Torschüsse gesamt</h2>
+            <div></div>
+        </div>
+        <div id="shotsOnGoal">
+            <h2>Schüsse aufs Tor</h2>
+            <div></div>
+        </div>
+        <div id="passes">
+            <h2>Pässe</h2>
+            <div></div>
+        </div>
+        <div id="passStat">
+            <h2>Passquote</h2>
+            <div></div>
+        </div>
+        <div id="fouls">
+            <h2>Begangene Fouls</h2>
+            <div></div>
+        </div>
+        <div id="yellowCards">
+            <h2>Gelbe Karten</h2>
+            <div></div>
+        </div>
+        <div id="redCards">
+            <h2>Rote Karten</h2>
+            <div></div>
+        </div>
+        <div id="corners">
+            <h2>Ecken</h2>
+            <div></div>
+        </div>
+        <div id="offside">
+            <h2>Abseits</h2>
+            <div></div>
+        </div>
     </div>
-
 
 </body>
 

@@ -1,11 +1,12 @@
 var time, sec = 0, min = 0, active = false;
+var possessionTotal = 0, possessionHome = 0;
 
 function startTimer() {
     time = setTimeout(add, 1000)
 }
 
 function stopTimer() {
-    time = time;
+    clearInterval(time);
 }
 
 function add() {
@@ -15,8 +16,14 @@ function add() {
         min++;
         sec = 0;
     }
-    printTime();
+    addPoss();
+    printData();
     startTimer();
+}
+
+function printData() {
+    printTime();
+    printPoss();
 }
 
 function printTime() {
@@ -36,10 +43,10 @@ function toggleTimer() {
 
 function toggleIconStatus() {
 
-    if (document.getElementById('startGame').innerText == "Start Game") {
+    if (document.getElementById('startGame').innerText == ("Resume Game" || "Start Game")) {
         document.getElementById('startGame').innerText = "Pause Game";
     } else {
-        document.getElementById('startGame').innerText = "Start Game";
+        document.getElementById('startGame').innerText = "Resume Game";
     }
 
     if (document.getElementById('gameStatus').className == "spin") {
@@ -52,4 +59,32 @@ function toggleIconStatus() {
 function toggleGame() {
     toggleIconStatus();
     toggleTimer();
+}
+
+function addPoss() {
+    if (!document.getElementById('possessionStatus').checked) {
+        possessionHome++;
+    }
+    possessionTotal++;
+    printPoss();
+}
+
+function printPoss() {
+    let possTotal = possessionTotal;
+    let homePt = possessionHome;
+    let awayPt = possessionTotal - possessionHome;
+
+    let homePoss = Math.round((homePt / possTotal) * 100);
+    let awayPoss = 100 - homePoss;
+
+    document.getElementById('possHome').innerText = homePoss;
+    document.getElementById('possAway').innerText = awayPoss;
+
+    document.getElementById('possBar').value = homePoss;
+
+    console.log('Possession: HOME ' + homePoss + '% - ' + awayPoss + '% AWAY');
+
+    // console.log('Possession Total: ' + possTotal);
+    // console.log('Possession Home: ' + ((homePt / possTotal) * 100) + ' ( ' + homePt + ' )');
+    // console.log('Possession Away: ' + ((awayPt / possTotal) * 100) + ' ( ' + awayPt + ' )');
 }
