@@ -11,42 +11,55 @@
 </head>
 
 <body>
-    <h1>Football Statistics</h1>
-
     <div class="ct">
-        <button id="startGame" onclick="toggleGame()" style="font-size: 1.2rem;">⏯️</button> <button onclick="setupSecondLeg()"
-            style="margin-left: 0.5rem;">2.HZ</button>
+        <button id="startGame" onclick="toggleGame()" style="font-size: 1.2rem;">⏯️</button> <span id="gameStatus" class="">⚽</span> <button
+        onclick="setupSecondLeg()" style="margin-left: 0.5rem;">2.HZ</button>
     </div>
-    <div class="ct">
-        <span id="gameStatus" class="">⚽</span>
-    </div>
-    <div id="timer" class="ct">
-        <span id="min">0</span><span>:</span><span id="sec">00</span>
-    </div>
-    <div class="ct" style="margin: 0.5rem;">
-        <label class="switch">
-            <input type="checkbox" id="possessionStatus">
-            <span class="slider round"></span>
-        </label>
-    </div>
-
+    <h1 id="heading">Fußball Statistik</h1>
+    
     <div id="stats">
         <div id="possession">
+            <div class="ct" style="margin: 0.5rem;">
+                <label class="switch">
+                    <input type="checkbox" id="possessionStatus">
+                    <span class="slider round"></span>
+                </label>
+            </div>
             <h2>Ballbesitz</h2>
             <div class="ct nrs">
-                <span id="possHome">50</span>%&nbsp;-&nbsp;<span id="possAway">50</span>%
+                <span id="possHome">-</span>%&nbsp;-&nbsp;<span id="possAway">-</span>%
             </div>
-            <div class="ct">
+            <div class="ct border">
                 <progress id="possBar" max="100" value="50"></progress>
             </div>
         </div>
         <div id="shotsTotal">
             <h2>Torschüsse gesamt</h2>
-            <div></div>
+            <div class="ct nrs">
+                <span id="shotsTotalHome">0</span>&nbsp;-&nbsp;<span id="shotsTotalAway">0</span>
+            </div>
+            <div class="ct">
+                <progress id="shotsTotalBar" max="100" value="50"></progress>
+            </div>
         </div>
         <div id="shotsOnGoal">
             <h2>Schüsse aufs Tor</h2>
-            <div></div>
+            <div class="ct nrs">
+                <span id="shotsHome">0</span>&nbsp;-&nbsp;<span id="shotsAway">0</span>
+            </div>
+            <div class="ct">
+                <progress id="shotsBar" max="100" value="50"></progress>
+            </div>
+        </div>
+        <div class="button-wrapper ct">
+            <div class="home-pos home">
+                <button onclick="addShot(true, false)">⚽</button>
+                <button onclick="addShot(true, true)">🎯</button>
+            </div>
+            <div class="away-pos away">
+                <button onclick="addShot(false, true)">🎯</button>
+                <button onclick="addShot(false, false)">⚽</button>
+            </div>
         </div>
         <div id="passes">
             <h2>Pässe</h2>
@@ -57,7 +70,7 @@
             <div></div>
         </div>
         <div id="fouls">
-            <h2>Begangene Fouls</h2>
+            <h2>Fouls</h2>
             <div></div>
         </div>
         <div id="yellowCards">
@@ -76,6 +89,11 @@
             <h2>Abseits</h2>
             <div></div>
         </div>
+    </div>
+
+    <div id="setup" class="ct">
+        <label for="color">Farbe des Gegners:&nbsp;</label>
+        <input id="color" type="text" maxlength="6" onchange="changeColor(this);" />
     </div>
 
 </body>
