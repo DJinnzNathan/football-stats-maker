@@ -4,8 +4,10 @@ let possessionTotal = 0, possessionHome = 0;
 let shotsHomeTotal = 0, shotsHome = 0;
 let shotsAwayTotal = 0, shotsAway = 0;
 let foulsHome = 0, foulsAway = 0;
-let yellowCardHome = 0, yellowCardAway = 0;
-let redCardHome = 0, redCardAway = 0;
+let yellowCardsHome = 0, yellowCardsAway = 0;
+let redCardsHome = 0, redCardsAway = 0;
+let cornersHome = 0, cornersAway = 0;
+let offsidesHome = 0, offsidesAway = 0;
 
 function startTimer() {
     time = setTimeout(add, 1000)
@@ -94,18 +96,46 @@ function addFouls(isHome) {
 
     let homeFouls = Math.round((foulsHome / (foulsHome + foulsAway)) * 100);
     document.getElementById('foulsBar').value = homeFouls;
-
-    console.log(foulsHome + ' : ' + foulsAway);
 }
 
 function addYellowCard(isHome) {
-    (isHome) ? yellowCardHome++ : yellowCardAway++;
-    console.log(yellowCardHome + ' : ' + yellowCardAway);
+    (isHome) ? yellowCardsHome++ : yellowCardsAway++;
+
+    document.getElementById('yellowCardsHome').innerText = yellowCardsHome;
+    document.getElementById('yellowCardsAway').innerText = yellowCardsAway;
+
+    let homeYellowCards = Math.round((yellowCardsHome / (yellowCardsHome + yellowCardsAway)) * 100);
+    document.getElementById('yellowCardsBar').value = homeYellowCards;
 }
 
 function addRedCard(isHome) {
-    (isHome) ? redCardHome++ : redCardAway++;
-    console.log(redCardHome + ' : ' + redCardAway);
+    (isHome) ? redCardsHome++ : redCardsAway++;
+
+    document.getElementById('redCardsHome').innerText = redCardsHome;
+    document.getElementById('redCardsAway').innerText = redCardsAway;
+
+    let homeRedCards = Math.round((redCardsHome / (redCardsHome + redCardsAway)) * 100);
+    document.getElementById('redCardsBar').value = homeRedCards;
+}
+
+function addCorner(isHome) {
+    (isHome) ? cornersHome++ : cornersAway++;
+
+    document.getElementById('cornersHome').innerText = cornersHome;
+    document.getElementById('cornersAway').innerText = cornersAway;
+
+    let homeCorners = Math.round((cornersHome / (cornersHome + cornersAway)) * 100);
+    document.getElementById('cornersBar').value = homeCorners;
+}
+
+function addOffside(isHome) {
+    (isHome) ? offsidesHome++ : offsidesAway++;
+
+    document.getElementById('offsidesHome').innerText = offsidesHome;
+    document.getElementById('offsidesAway').innerText = offsidesAway;
+
+    let homeOffsides = Math.round((offsidesHome / (offsidesHome + offsidesAway)) * 100);
+    document.getElementById('offsidesBar').value = homeOffsides;
 }
 
 function printPoss() {

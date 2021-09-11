@@ -89,8 +89,11 @@
             </div>
             <div id="yellowCards">
                 <h2>Gelbe Karten</h2>
+                <div class="ct nrs">
+                    <span id="yellowCardsHome">0</span>&nbsp;-&nbsp;<span id="yellowCardsAway">0</span>
+                </div>
                 <div class="ct-alt progr border">
-                    <progress id="yellowCardBar" max="100" value="50"></progress>
+                    <progress id="yellowCardsBar" max="100" value="50"></progress>
                 </div>
             </div>
             <div class="button-wrapper ct">
@@ -103,8 +106,11 @@
             </div>
             <div id="redCards">
                 <h2>Rote Karten</h2>
+                <div class="ct nrs">
+                    <span id="redCardsHome">0</span>&nbsp;-&nbsp;<span id="redCardsAway">0</span>
+                </div>
                 <div class="ct-alt progr border">
-                    <progress id="redCardBar" max="100" value="50"></progress>
+                    <progress id="redCardsBar" max="100" value="50"></progress>
                 </div>
             </div>
             <div class="button-wrapper ct">
@@ -117,26 +123,36 @@
             </div>
             <div id="corners">
                 <h2>Ecken</h2>
-                <div></div>
+                <div class="ct nrs">
+                    <span id="cornersHome">0</span>&nbsp;-&nbsp;<span id="cornersAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="cornersBar" max="100" value="50"></progress>
+                </div>
             </div>
             <div class="button-wrapper ct">
                 <div class="home-corner home">
-                    <button onclick=""></button>
+                    <button onclick="addCorner(true)">⛳</button>
                 </div>
                 <div class="away-corner away">
-                    <button onclick=""></button>
+                    <button onclick="addCorner(false)">⛳</button>
                 </div>
             </div>
             <div id="offside">
                 <h2>Abseits</h2>
-                <div></div>
+                <div class="ct nrs">
+                    <span id="offsidesHome">0</span>&nbsp;-&nbsp;<span id="offsidesAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="offsidesBar" max="100" value="50"></progress>
+                </div>
             </div>
             <div class="button-wrapper ct">
                 <div class="home-offside home">
-                    <button onclick=""></button>
+                    <button onclick="addOffside(true)">🚩</button>
                 </div>
                 <div class="away-offside away">
-                    <button onclick=""></button>
+                    <button onclick="addOffside(false)">🚩</button>
                 </div>
             </div>
         </div>
