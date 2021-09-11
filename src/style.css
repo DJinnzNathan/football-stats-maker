@@ -5,6 +5,7 @@
   --home: #560372;
   --away: #d9dd00;
   --bg: #303030;
+  --overlay: #00000054;
 }
 
 body {
@@ -22,6 +23,17 @@ h2 {
   text-transform: uppercase;
   text-shadow: -1px 0 var(--bg), 0 1px var(--bg), 1px 0 var(--bg),
     0 -1px var(--bg);
+}
+
+.tint-overlay {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+  background: var(--overlay);
 }
 
 /* DEACTIVATED */
@@ -57,7 +69,7 @@ h2 {
 
 .border {
   border-style: solid;
-  border-width: 2px;
+  border-width: 0px;
   border-color: var(--bg);
 }
 

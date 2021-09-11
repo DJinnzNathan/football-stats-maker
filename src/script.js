@@ -3,6 +3,9 @@ let time, sec = 0, min = 0, active = false;
 let possessionTotal = 0, possessionHome = 0;
 let shotsHomeTotal = 0, shotsHome = 0;
 let shotsAwayTotal = 0, shotsAway = 0;
+let foulsHome = 0, foulsAway = 0;
+let yellowCardHome = 0, yellowCardAway = 0;
+let redCardHome = 0, redCardAway = 0;
 
 function startTimer() {
     time = setTimeout(add, 1000)
@@ -84,6 +87,27 @@ function addPoss() {
     printPoss();
 }
 
+function addFouls(isHome) {
+    (isHome) ? foulsHome++ : foulsAway++;
+    document.getElementById('foulsHome').innerText = foulsHome;
+    document.getElementById('foulsAway').innerText = foulsAway;
+
+    let homeFouls = Math.round((foulsHome / (foulsHome + foulsAway)) * 100);
+    document.getElementById('foulsBar').value = homeFouls;
+
+    console.log(foulsHome + ' : ' + foulsAway);
+}
+
+function addYellowCard(isHome) {
+    (isHome) ? yellowCardHome++ : yellowCardAway++;
+    console.log(yellowCardHome + ' : ' + yellowCardAway);
+}
+
+function addRedCard(isHome) {
+    (isHome) ? redCardHome++ : redCardAway++;
+    console.log(redCardHome + ' : ' + redCardAway);
+}
+
 function printPoss() {
     let possTotal = possessionTotal;
     let homePt = possessionHome;
@@ -121,6 +145,7 @@ function addShot(isHome, isOnGoal) {
 }
 
 function printShots() {
+
     document.getElementById('shotsTotalHome').innerText = shotsHomeTotal;
     document.getElementById('shotsTotalAway').innerText = shotsAwayTotal;
 
