@@ -4,10 +4,12 @@
   --sel: #7d00a7;
   --home: #560372;
   --away: #d9dd00;
+  --bg: #303030;
+  --overlay: #00000054;
 }
 
 body {
-  background-color: #303030;
+  background-color: var(--bg);
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
 }
@@ -19,6 +21,34 @@ h2 {
 
 h2 {
   text-transform: uppercase;
+  text-shadow: -1px 0 var(--bg), 0 1px var(--bg), 1px 0 var(--bg),
+    0 -1px var(--bg);
+}
+
+.tint-overlay {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+  background: var(--overlay);
+}
+
+/* DEACTIVATED */
+
+#passes,
+#passStat {
+  display: none;
+}
+
+.home {
+  float: left;
+}
+
+.away {
+  float: left;
 }
 
 .nrs {
@@ -37,6 +67,16 @@ h2 {
   background: var(--sel);
 }
 
+.border {
+  border-style: solid;
+  border-width: 0px;
+  border-color: var(--bg);
+}
+
+.progr {
+  width: fit-content;
+}
+
 /* Vertical Center*/
 .ct {
   display: flex;
@@ -44,8 +84,17 @@ h2 {
   align-items: center;
 }
 
+.ct-alt {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* BUTTONS */
+
 button {
   background-color: #120018;
+  border: 5px;
+  border-color: var(--bg);
   border: none;
   border-radius: 15px;
   color: white;
@@ -70,12 +119,17 @@ button:hover {
   animation-duration: 0.5;
 }
 
-button .home {
+.home button {
   background-color: var(--home);
 }
 
-button .away {
+.away button {
   background-color: var(--away); /* make dynamic */
+}
+
+.button-wrapper {
+  margin: 0.5rem;
+  overflow: hidden;
 }
 
 /* The switch - the box around the slider */
@@ -158,6 +212,12 @@ input:checked + .slider:before {
 
 /* PROGRESS BAR */
 
+progress {
+  border: 0.5rem;
+
+  border-color: var(--bg);
+}
+
 progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;
@@ -173,7 +233,7 @@ progress[value]::-webkit-progress-bar {
 }
 
 progress[value]::-webkit-progress-value {
- background-color: var(--home);
+  background-color: var(--home);
 }
 
 /* ANIMATIONS */
@@ -211,4 +271,10 @@ progress[value]::-webkit-progress-value {
   to {
     transform: rotate(360deg);
   }
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 0;
 }

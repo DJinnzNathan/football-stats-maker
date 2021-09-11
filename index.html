@@ -5,75 +5,161 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Football Statistics</title>
     <link rel="stylesheet" href="src/style.css">
     <script src="src/script.js"></script>
 </head>
 
 <body>
-    <h1>Football Statistics</h1>
+    <div class="tint-overlay">
+        <div class="ct">
+            <button id="startGame" onclick="toggleGame()" style="font-size: 1.2rem;">⏯️</button> <span id="gameStatus"
+                class="">⚽</span> <button onclick="setupSecondLeg()" style="margin-left: 0.5rem;">2.HZ</button>
+        </div>
+        <h1 id="heading">Fußball Statistik</h1>
 
-    <div class="ct">
-        <span id="gameStatus" class="">⚽</span>
-    </div>
-    <div id="timer" class="ct">
-        <span id="min">0</span><span>:</span><span id="sec">00</span>
-    </div>
-    <div class="ct">
-        <button id="startGame" onclick="toggleGame()">Start Game</button>
-    </div>
-    <div class="ct" style="margin: 0.5rem;">
-        <label class="switch">
-            <input type="checkbox" id="possessionStatus">
-            <span class="slider round"></span>
-        </label>
-    </div>
+        <div id="stats">
+            <div id="possession">
+                <div class="ct" style="margin: 0.5rem;">
+                    <label class="switch">
+                        <input type="checkbox" id="possessionStatus">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <h2>Ballbesitz</h2>
+                <div class="ct nrs">
+                    <span id="possHome">-</span>%&nbsp;-&nbsp;<span id="possAway">-</span>%
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="possBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div id="shotsTotal">
+                <h2>Torschüsse gesamt</h2>
+                <div class="ct nrs">
+                    <span id="shotsTotalHome">0</span>&nbsp;-&nbsp;<span id="shotsTotalAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="shotsTotalBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div id="shotsOnGoal">
+                <h2>Schüsse aufs Tor</h2>
+                <div class="ct nrs">
+                    <span id="shotsHome">0</span>&nbsp;-&nbsp;<span id="shotsAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="shotsBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div class="button-wrapper ct">
+                <div class="home-pos home">
+                    <button onclick="addShot(true, false)">⚽</button>
+                    <button onclick="addShot(true, true)">🎯</button>
+                </div>
+                <div class="away-pos away">
+                    <button onclick="addShot(false, true)">🎯</button>
+                    <button onclick="addShot(false, false)">⚽</button>
+                </div>
+            </div>
+            <div id="passes">
+                <h2>Pässe</h2>
+                <div></div>
+            </div>
+            <div id="passStat">
+                <h2>Passquote</h2>
+                <div></div>
+            </div>
+            <div id="fouls">
+                <h2>Fouls</h2>
+                <div class="ct nrs">
+                    <span id="foulsHome">0</span>&nbsp;-&nbsp;<span id="foulsAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="foulsBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div class="button-wrapper ct">
+                <div class="home-fouls home">
+                    <button onclick="addFouls(true)">⛔</button>
+                </div>
+                <div class="away-fouls away">
+                    <button onclick="addFouls(false)">⛔</button>
+                </div>
+            </div>
+            <div id="yellowCards">
+                <h2>Gelbe Karten</h2>
+                <div class="ct nrs">
+                    <span id="yellowCardsHome">0</span>&nbsp;-&nbsp;<span id="yellowCardsAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="yellowCardsBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div class="button-wrapper ct">
+                <div class="home-ycard home">
+                    <button onclick="addYellowCard(true)">🟨</button>
+                </div>
+                <div class="away-ycard away">
+                    <button onclick="addYellowCard(false)">🟨</button>
+                </div>
+            </div>
+            <div id="redCards">
+                <h2>Rote Karten</h2>
+                <div class="ct nrs">
+                    <span id="redCardsHome">0</span>&nbsp;-&nbsp;<span id="redCardsAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="redCardsBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div class="button-wrapper ct">
+                <div class="home-rcard home">
+                    <button onclick="addRedCard(true)">🟥</button>
+                </div>
+                <div class="away-rcard away">
+                    <button onclick="addRedCard(false)">🟥</button>
+                </div>
+            </div>
+            <div id="corners">
+                <h2>Ecken</h2>
+                <div class="ct nrs">
+                    <span id="cornersHome">0</span>&nbsp;-&nbsp;<span id="cornersAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="cornersBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div class="button-wrapper ct">
+                <div class="home-corner home">
+                    <button onclick="addCorner(true)">⛳</button>
+                </div>
+                <div class="away-corner away">
+                    <button onclick="addCorner(false)">⛳</button>
+                </div>
+            </div>
+            <div id="offside">
+                <h2>Abseits</h2>
+                <div class="ct nrs">
+                    <span id="offsidesHome">0</span>&nbsp;-&nbsp;<span id="offsidesAway">0</span>
+                </div>
+                <div class="ct-alt progr border">
+                    <progress id="offsidesBar" max="100" value="50"></progress>
+                </div>
+            </div>
+            <div class="button-wrapper ct">
+                <div class="home-offside home">
+                    <button onclick="addOffside(true)">🚩</button>
+                </div>
+                <div class="away-offside away">
+                    <button onclick="addOffside(false)">🚩</button>
+                </div>
+            </div>
+        </div>
 
-    <div id="stats">
-        <div id="possession">
-            <h2>Ballbesitz</h2>
-            <div class="ct nrs">
-                <span id="possHome">50</span>%&nbsp;-&nbsp;<span id="possAway">50</span>%
-            </div>
-            <div class="ct">
-                <progress id="possBar" max="100" value="50"></progress>
-            </div>
-        </div>
-        <div id="shotsTotal">
-            <h2>Torschüsse gesamt</h2>
-            <div></div>
-        </div>
-        <div id="shotsOnGoal">
-            <h2>Schüsse aufs Tor</h2>
-            <div></div>
-        </div>
-        <div id="passes">
-            <h2>Pässe</h2>
-            <div></div>
-        </div>
-        <div id="passStat">
-            <h2>Passquote</h2>
-            <div></div>
-        </div>
-        <div id="fouls">
-            <h2>Begangene Fouls</h2>
-            <div></div>
-        </div>
-        <div id="yellowCards">
-            <h2>Gelbe Karten</h2>
-            <div></div>
-        </div>
-        <div id="redCards">
-            <h2>Rote Karten</h2>
-            <div></div>
-        </div>
-        <div id="corners">
-            <h2>Ecken</h2>
-            <div></div>
-        </div>
-        <div id="offside">
-            <h2>Abseits</h2>
-            <div></div>
+        <div id="setup" class="ct">
+            <label for="color">Farbe des Gegners:&nbsp;</label>
+            <input id="color" type="text" maxlength="6" onchange="changeColor(this);" />
         </div>
     </div>
 
