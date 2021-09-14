@@ -12,6 +12,7 @@ body {
   background-color: var(--bg);
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
+  animation: bgChange 500ms ease-in-out;
 }
 
 h1,
@@ -42,6 +43,8 @@ h2 {
 #passStat {
   display: none;
 }
+
+/* */
 
 .home {
   float: left;
