@@ -11,7 +11,7 @@ let offsidesHome = 0, offsidesAway = 0;
 
 
 const awayColor = localStorage.getItem('awayColor');
-console.log(awayColor);
+
 function init() {
     if (awayColor !== undefined) {
         root.style.setProperty('--away', awayColor);
