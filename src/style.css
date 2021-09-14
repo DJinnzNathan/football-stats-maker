@@ -239,6 +239,24 @@ progress[value]::-webkit-progress-value {
   background-color: var(--home);
 }
 
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 0;
+  background-color: #00000000;
+  color: #ffffff;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 3px solid var(--away);
+}
+
 /* ANIMATIONS */
 
 .bounce {
@@ -274,10 +292,4 @@ progress[value]::-webkit-progress-value {
   to {
     transform: rotate(360deg);
   }
-}
-
-input[type="text"] {
-  padding: 10px;
-  margin: 10px 0;
-  border: 0;
 }
