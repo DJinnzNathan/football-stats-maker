@@ -9,6 +9,19 @@ let redCardsHome = 0, redCardsAway = 0;
 let cornersHome = 0, cornersAway = 0;
 let offsidesHome = 0, offsidesAway = 0;
 
+
+const awayColor = localStorage.getItem('awayColor');
+
+function init() {
+    if (awayColor !== undefined) {
+        root.style.setProperty('--away', awayColor);
+    } else {
+        root.style.setProperty('--away', 'd9dd00');
+    }
+}
+
+init();
+
 function startTimer() {
     time = setTimeout(add, 1000)
 }
@@ -150,8 +163,6 @@ function printPoss() {
     document.getElementById('possAway').innerText = awayPoss;
 
     document.getElementById('possBar').value = homePoss;
-
-    console.log('Possession: HOME ' + homePoss + '% - ' + awayPoss + '% AWAY');
 }
 
 function setupSecondLeg() {
@@ -206,7 +217,8 @@ document.addEventListener('keydown', function (event) {
 });
 
 function changeColor(obj) {
-    root.style.setProperty('--away', '#' + obj.value);
+    root.style.setProperty('--away', obj.value);
+    localStorage.setItem('awayColor', obj.value);
 }
 
 function resetBG() {
