@@ -29,6 +29,9 @@
   border: 3px solid var(--away);
 }
 
+html {
+}
+
 body {
   background-color: var(--bg);
   color: #ffffff;
@@ -48,8 +51,8 @@ h2 {
 }
 
 .tint-overlay {
+  position: absolute;
   width: 100%;
-  height: 100%;
   padding: 0;
   margin: 0;
 
