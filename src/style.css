@@ -29,9 +29,6 @@
   border: 3px solid var(--away);
 }
 
-html {
-}
-
 body {
   background-color: var(--bg);
   color: #ffffff;
